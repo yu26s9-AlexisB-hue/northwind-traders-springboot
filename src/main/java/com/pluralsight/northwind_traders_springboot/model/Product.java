@@ -1,25 +1,31 @@
 package com.pluralsight.northwind_traders_springboot.model;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "products")
 public class Product {
-    private int productId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long productId;
     private String name;
     private String category;
     private BigDecimal price;
 
-    public Product(int productId, String name, String category, BigDecimal price) {
+    public Product(Long productId, String name, String category, BigDecimal price) {
         this.productId = productId;
         this.name = name;
         this.category = category;
         this.price = price;
     }
 
-    public int getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
