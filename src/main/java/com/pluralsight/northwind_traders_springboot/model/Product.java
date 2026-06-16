@@ -9,10 +9,17 @@ import java.math.BigDecimal;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ProductID")
     private Long productId;
+    @Column(name = "`ProductName`")
     private String name;
+    @Column(name = "CategoryID")
     private String category;
+    @Column(name = "`UnitPrice`")
     private BigDecimal price;
+
+    public Product(){
+    }
 
     public Product(Long productId, String name, String category, BigDecimal price) {
         this.productId = productId;
